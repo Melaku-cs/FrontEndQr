@@ -1,6 +1,10 @@
 // src/pages/MerchantPage.tsx
 import React from 'react';
 import DefaultLayout from './layout/DefaultLayout';
+import NewAdded from './pages/NewAdded';
+import NewMerchant from './pages/NewMerchant';
+import TotalMerchant from './pages/TotalMerchant';
+import TotalUser from './pages/TotalUser';
 
 const MerchantPage: React.FC = () => {
   return (
@@ -10,26 +14,25 @@ const MerchantPage: React.FC = () => {
         <p className="mb-4">Welcome to your dashboard! Here you can manage your account and view your stats.</p>
         
         {/* Example of some sections you might want to add */}
-        <div className="bg-white shadow-md rounded-lg p-6 mb-4">
-          <h3 className="text-xl font-semibold">Account Information</h3>
-          <p>Username: merchant_username</p>
-          <p>Email: merchant@example.com</p>
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="bg-gray-400 p-4 rounded h-50 w-80 shadow-lg hover:bg-blue-400">
+                        
+                       <TotalUser/>
+                    </div>
+                    <div className="bg-indingo-400 p-4 rounded shadow-lg h-50 w-80 hover:bg-blue-400">
+                      
+                    <TotalMerchant/>
 
-        <div className="bg-white shadow-md rounded-lg p-6 mb-4">
-          <h3 className="text-xl font-semibold">Recent Transactions</h3>
-          <ul>
-            <li>Transaction 1 - $100</li>
-            <li>Transaction 2 - $250</li>
-            <li>Transaction 3 - $75</li>
-          </ul>
-        </div>
+                    </div>
+                    <div>
 
-        <div className="bg-white shadow-md rounded-lg p-6">
-          <h3 className="text-xl font-semibold">Actions</h3>
-          <button className="bg-blue-500 text-white py-2 px-4 rounded">View Reports</button>
-          <button className="bg-green-500 text-white py-2 px-4 rounded ml-2">Manage Products</button>
-        </div>
+                        <NewMerchant/>
+                    </div>
+                    <div>
+                    <NewAdded/>
+                    </div>
+                   
+                </div>
       </div>
     </DefaultLayout>
   );

@@ -5,7 +5,7 @@ import AdminIndex from '../components/Sidebar/AdminIndex';
 
 const AdminLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
-    
+    console.log(children)
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (

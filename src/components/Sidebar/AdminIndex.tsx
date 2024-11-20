@@ -63,10 +63,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     >
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between bg-gradient-to-l from-white to-[#f60] gap-2 px-6 py-5.5 lg:py-6.5">
-
-        <NavLink to="/">
-          <img src='src/images/logo/logo-top.SVG'  className="rounded-full w-50 h-50 object-cover" alt="Logo" />
-        </NavLink>
+      <img src="src/images/logo/logo-top.SVG" className="object-cover w-full h-full" alt="Logo" />
+      
 
         <button
           ref={trigger}
@@ -279,7 +277,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   <path d="M16.5 3.5l4 4-11 11H5v-4l11-11z" />
   <path d="M3 21h18" />
 </svg>
-                  User Registratio Form
+                  User Registration Form
                 </NavLink>
               </li>
               {/* <!-- Menu Item Settings --> */}

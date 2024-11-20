@@ -1,17 +1,18 @@
-// src/components/PrivateRoute.tsx
+import React from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
 
-import { Route, Navigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+interface PrivateRouteProps {
+  role: string | null;  // Allow null for unauthenticated users
+  isLoggedIn: boolean;  // Add isLoggedIn prop
+}
 
-const PrivateRoute = ({  element, ...rest }) => {
-  const { isAuthenticated } = useAuth();
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ role, isLoggedIn }) => {
+  const isAuthenticated = isLoggedIn && (role === '1' || role === '2'); // Check if user is authenticated
 
-  return (
-    <Route
-      {...rest}
-      element={isAuthenticated ? element : <Navigate to="/auth/signin" />}
-    />
-  );
+  // Redirect to the appropriate path based on role if necessary
+  const redirectPath = isLoggedIn ? (role === '1' ? '/admin' : '/merchant') : '/auth/signin';
+
+  return isAuthenticated ? <Outlet /> : <Navigate to={redirectPath} />;
 };
 
 export default PrivateRoute;
